@@ -1,0 +1,7 @@
+.addUser {
+    padding: 15px;
+    display: grid;
+    grid-auto-flow: row;
+   grid-row-gap: 10px
+}
+
