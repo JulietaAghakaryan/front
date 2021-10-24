@@ -1,15 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../App.css";
-import productData from "../Employees.json";
 import "./Employees.css";
+import Button from "@mui/material/Button";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-function Employees() {
+function Employees({ data, setData }) {
+  useEffect(() => {
+    fetch("http://localhost:8085/api/employee")
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  const handelOnDelete = (username) => {
+    const url = "http://localhost:8085/api/employee/delete/".concat(username);
+    fetch(url, { method: "DELETE" })
+      .then((res) => {
+        setData(data.filter((row) => row.username !== username));
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="employeeList">
-      {productData &&
-        productData.map((item) => (
+      {data &&
+        data.map((item) => (
           <li>
-            {item.name}, {item.role}
+            {item.firstName} {item.lastName} {item.roles}
+            <Button
+              size="large"
+              className="deleteButton"
+              variant="outlined"
+              startIcon={<DeleteIcon />}
+              onClick={() => handelOnDelete(item.username)}
+            />
           </li>
         ))}
     </div>

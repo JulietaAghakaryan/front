@@ -3,6 +3,7 @@ import Sidebar from "./Components/Sidebar";
 import Suppliers from "./Components/Suppliers";
 import Products from "./Components/Products";
 import Employees from "./Components/Employees";
+import { makeStyles } from '@mui/styles';
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,8 +13,11 @@ import {
 import SearchBar from "./Components/SearchBar";
 import productData from "./Data.json";
 import AddUser from "./Components/AddUser/AddUser";
+import { useState } from "react";
 
 function App() {
+  const [data, setData] = useState([]);
+  
   return (
     <Router>
       <div className="container">
@@ -27,18 +31,23 @@ function App() {
                 <Switch>
                   <Route path="/suppliers" component={Suppliers} />
                   <Route path="/products" component={Products} />
-                  <Route path="/employees" component={Employees} />
-                  <Route path="/suppliers" component={Suppliers} />
+                  <Route path="/employees">
+                    <Employees data={data} setData={setData} />
+                  </Route>
+                  <Route  path="/">
+                    <Redirect to="/dashboard" />
+                  </Route>
                 </Switch>
               </div>
             </div>
             <div className="add-stuff-container">
-            <button className="add-stuff">Add</button>
+              <button className="add-stuff">Add</button>
               <Switch>
                 <Route path="/suppliers" />
-                <Route path="/employees" component={AddUser} />
-                <Route path="/products"  />
-               
+                <Route path="/employees">
+                  <AddUser setData={setData} />
+                </Route>
+                <Route path="/products" />
               </Switch>
             </div>
           </div>

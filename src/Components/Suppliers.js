@@ -1,7 +1,8 @@
-import React from 'react'
+//import React, {useState} from 'react'
 import '../App.css';
 import productData from "../Suppliers.json";
 import "./Suppliers.css"
+
 
 function Suppliers() {
     return (

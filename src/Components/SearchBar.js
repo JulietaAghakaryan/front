@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "../App.css";
 import SearchIcon from "@mui/icons-material/Search";
 
-
-
 function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
   const handleFilter = (event) => {
@@ -44,10 +42,3 @@ function SearchBar({ placeholder, data }) {
 }
 
 export default SearchBar;
-
-
-
-
-
-
-

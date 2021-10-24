@@ -3,14 +3,10 @@ import "./AddUser.css";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
-//import axios, { Axios } from 'axios'
-
-
-
 
 const rolesList = ["ADMIN", "CASHIER"];
 
-function AddUser({setData}) {
+function AddProduct({setData}) {
   const [userRole, setRole] = React.useState(rolesList[0]);
   const [firstName, setName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
@@ -87,4 +83,4 @@ function AddUser({setData}) {
   );
 }
 
-export default AddUser;
+export default AddProduct;
