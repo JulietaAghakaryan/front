@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../App.css";
 import { SideboardData } from "./SideboardData.js";
 
-function Sidebar() {
+function Sidebar({setPathname}) {
   const { pathname } = useLocation();
-  console.log(pathname);
+  useEffect(() => {
+    setPathname(pathname)
+  }, [pathname])
   return (
     <div className="Sidebar sidebar">
       <ul className="SidebarList">

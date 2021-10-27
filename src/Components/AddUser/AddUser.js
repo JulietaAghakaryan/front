@@ -24,7 +24,7 @@ function AddUser({setData}) {
     e.preventDefault();
     const roles = [userRole]
     const body = {firstName, lastName, username, password, roles};
-    fetch("http://localhost:8085/api/employee", {
+    fetch("http://192.168.88.92:8085/api/employee", {
       method: "POST",
       headers: {"content-Type": "application/json"},
       body: JSON.stringify(body)

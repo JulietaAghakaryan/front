@@ -107,7 +107,7 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 80%;
-  background-color: lightgray;
+ 
   color: white;
   padding-right: 15px;
 }
@@ -145,6 +145,10 @@ body {
   box-sizing: border-box;
 }
 
+.headen{
+  display: none;
+}
+
 .add-stuff {
   height: 40px;
   padding: 0 20px;
@@ -178,6 +182,8 @@ body {
 .dataResult .dataItem:hover {
   background-color: lightgray;
 }
+
+
 
 /* .Sidebar {
   height: 100%;

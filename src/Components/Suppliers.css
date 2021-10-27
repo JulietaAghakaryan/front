@@ -17,3 +17,10 @@
       background-color: gray;
   }
   
+.supplierList .deleteButton {
+    margin-right: 3px;
+  }
+  .supplierList .deleteButton:hover {
+      background-color: lightslategray;
+    }
+  
